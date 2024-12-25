@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import GlassMorphicWrapper from '../navigation/GlassMorphicWrapper';
+import GlassMorphicWrapper from '../wrappers/GlassMorphicWrapper';
 import TabNavigator from '../navigation/TabNavigator';
 
 const MainScreen = () => {

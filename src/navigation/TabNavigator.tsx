@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import BackgroundWrapper from '../navigation/BackgroundWrapper';
+import BackgroundWrapper from '../wrappers/BackgroundWrapper';
 import { useTheme } from '../theme/ThemeContext';
 import { BOTTOM_TABS } from '../utils/constants';
 import Header from '../components/Header';
