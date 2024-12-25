@@ -1,4 +1,4 @@
-import { StockItem } from '../types/marketDataTypes';
+import { StockItem } from '../types/MarketDataTypes';
 import { SubscribeMessage} from '../types/interfaces';
  //import { AUTHORIZATION_TOKEN, REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL } from '@env';
 

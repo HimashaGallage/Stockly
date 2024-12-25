@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TopOfBookData } from '../types/marketDataTypes';
+import { TopOfBookData } from '../types/MarketDataTypes';
 import {TingoApiResponse} from '../types/interfaces';
 
 const TIINGO_API_URL = 'https://api.tiingo.com/tiingo/crypto';

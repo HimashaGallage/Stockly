@@ -6,7 +6,7 @@ import { useTheme } from '../../theme/ThemeContext';
 import { formatTickerSymbol } from '../../utils/utils';
 import StocklyFormField from '../../components/StocklyFormField';
 import Spinner from '../../components/Spinner';
-import {CustomModalProps} from '../../types/marketDataTypes';
+import {CustomModalProps} from '../../types/MarketDataTypes';
 
 const CryptoDetailModal: React.FC<CustomModalProps> = ({ item, isVisible, onClose }) => {
   const theme = useTheme();

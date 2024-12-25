@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { StockItem, TopOfBookData } from "./marketDataTypes";
+import { StockItem, TopOfBookData } from "./MarketDataTypes";
 
 export interface CustomHeaderProps {
     title: string;
