@@ -1,9 +1,6 @@
 import axios from 'axios';
-import { TopOfBookData } from '../types/MarketDataTypes';
-
-interface TingoApiResponse {
-    topOfBookData: TopOfBookData[];
-}
+import { TopOfBookData } from '../types/marketDataTypes';
+import {TingoApiResponse} from '../types/interfaces';
 
 const TIINGO_API_URL = 'https://api.tiingo.com/tiingo/crypto';
 const AUTHORIZATION_TOKEN = 'd66497b6b1088bb39ab2f2915b7ca60d6af05d8a';

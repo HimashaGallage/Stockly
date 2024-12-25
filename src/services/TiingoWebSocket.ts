@@ -1,14 +1,6 @@
-import { StockItem } from '../types/MarketDataTypes';
+import { StockItem } from '../types/marketDataTypes';
+import { SubscribeMessage} from '../types/interfaces';
  //import { AUTHORIZATION_TOKEN, REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL } from '@env';
-
-interface SubscribeMessage {
-    eventName: string;
-    authorization: string;
-    eventData: {
-        thresholdLevel: number;
-        // tickers: string[];
-    };
-}
 
  const REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL =  'wss://api.tiingo.com/crypto';
  const AUTHORIZATION_TOKEN =  'd66497b6b1088bb39ab2f2915b7ca60d6af05d8a';

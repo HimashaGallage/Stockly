@@ -2,11 +2,7 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '../theme/ThemeContext';
-
-interface SearchBarProps {
-    value: string;
-    onChangeText: (text: string) => void;
-}
+import {SearchBarProps} from '../types/interfaces';
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText }) => {
     const theme = useTheme();

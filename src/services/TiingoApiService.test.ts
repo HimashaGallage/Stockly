@@ -2,7 +2,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { fetchTopOfTheBookData } from './TiingoApiService';
-import { TopOfBookData } from '../types/MarketDataTypes';
+import { TopOfBookData } from '../types/marketDataTypes';
 
 describe('fetchTopOfTheBookData', () => {
     let mock: MockAdapter;

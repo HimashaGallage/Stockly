@@ -1,9 +1,6 @@
 import React, { createContext, useContext, ReactNode } from 'react';
-import { dark_theme, light_theme} from './theme';
-
-interface ThemeProviderProps {
-  children: ReactNode;
-}
+import { dark_theme} from './theme';
+import {ThemeProviderProps} from '../types/interfaces';
 
 const ThemeContext = createContext(dark_theme);
 

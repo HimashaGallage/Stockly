@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { View, FlatList, StyleSheet, SafeAreaView, ImageBackground } from 'react-native';
 import TiingoWebSocket from '../../services/TiingoWebSocket';
-import { StockItem } from '../../types/MarketDataTypes';
+import { StockItem } from '../../types/marketDataTypes';
 import { useTheme } from '../../theme/ThemeContext';
 import CryptoDetailModal from './CryptoDetailModal';
 import StockCard from '../../components/StockCard';

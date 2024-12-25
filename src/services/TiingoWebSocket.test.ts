@@ -1,6 +1,5 @@
 // TiingoWebSocket.test.ts
 import TiingoWebSocket from './TiingoWebSocket';
-import { StockItem } from '../../types/MarketDataTypes';
 
 describe('TiingoWebSocket', () => {
     let mockWebSocket: WebSocket & {

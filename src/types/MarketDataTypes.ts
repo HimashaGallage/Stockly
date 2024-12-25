@@ -38,4 +38,9 @@ export interface TopOfBookData {
     lastSizeNotional: number;    
     quoteTimestamp: string;       
 }
-  
+
+export type CustomModalProps = {
+  isVisible: boolean;
+  onClose: () => void;
+  item: StockItem;
+};

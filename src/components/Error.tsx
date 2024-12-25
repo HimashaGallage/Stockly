@@ -2,11 +2,7 @@ import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import {error_messsges } from '../utils/strings';
-
-interface ErrorProps {
-    errorMessage: string;
-    onRetry: () => void;
-}
+import { ErrorProps} from '../types/interfaces';
 
 const Error: React.FC<ErrorProps> = ({ onRetry }) => {
     const theme = useTheme();

@@ -2,12 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import { formatTickerSymbol } from '../utils/utils';
-import { StockItem } from '../types/MarketDataTypes';
-
-interface StockCardProps {
-    item: StockItem;
-    onPress: () => void;
-}
+import { StockCardProps } from '../types/interfaces';
 
 const StockCard: React.FC<StockCardProps> = React.memo(({ item, onPress }) => {
     const theme = useTheme();

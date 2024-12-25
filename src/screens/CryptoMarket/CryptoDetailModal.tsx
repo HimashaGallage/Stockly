@@ -3,16 +3,10 @@ import { View, Text, StyleSheet, Pressable, ImageBackground, Modal } from 'react
 import { BlurView } from '@react-native-community/blur';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '../../theme/ThemeContext';
-import { StockItem } from '../../types/MarketDataTypes';
 import { formatTickerSymbol } from '../../utils/utils';
 import StocklyFormField from '../../components/StocklyFormField';
 import Spinner from '../../components/Spinner';
-
-type CustomModalProps = {
-  isVisible: boolean;
-  onClose: () => void;
-  item: StockItem;
-};
+import {CustomModalProps} from '../../types/marketDataTypes';
 
 const CryptoDetailModal: React.FC<CustomModalProps> = ({ item, isVisible, onClose }) => {
   const theme = useTheme();
