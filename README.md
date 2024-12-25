@@ -1,79 +1,125 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Stockly Mobile Trading App Documentation
+# Introduction
+•	App Name: Stockly
+•	Description: A mobile trading app built with React Native and TypeScript, offering live market data, stock search functionality, and detailed stock insights.
 
-# Getting Started
+ ## Key Features: 
+	Live market data using WebSocket integration with Tiingo.
+	Search and filter symbols.
+  Navigate between tabs for streamlined access.
+  Detailed stock view for selected symbols.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+# Prerequisites
+## Environment: 
+	Node.js (>=18.x)
+  npm or Yarn
+  React Native CLI
+  Dependencies: 
+  React Native TypeScript template
+	Tiingo API access (API key required
 
-To start Metro, run the following command from the _root_ of your React Native project:
+# Installation
+##  Clone the Repository
+git clone https://github.com/HimashaGallage/Stokcly.git
+cd Stockly
 
-```bash
-# using npm
-npm start
+##  Install Dependencies
+Run the following command to install all required dependencies:
+npm install
 
-# OR using Yarn
-yarn start
-```
+##  Environment Setup
+Create a .env file in the root directory with the following:
+### Tiingo API URL
+TIINGO_API_URL=https://api.tiingo.com/tiingo/crypto
+### Tiingo Crypto WebSocket URL
+REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL=wss://api.tiingo.com/crypto
+### Authorization Token
+AUTHORIZATION_TOKEN=
 
-## Step 2: Start your Application
+## Start the App
+•	For iOS: 
+•	npx pod-install
+•	npm run ios
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+•	For Android:  (not full tested)
+•	npm run android
 
-```bash
-# using npm
-npm run android
 
-# OR using Yarn
-yarn android
-```
+# App Structure 
+## Folder Structure
+  src/
 
-### For iOS
+ components -> Reusable UI components
+ 
+ screens/ -> App screens (Market, Search, Stock Details, etc.)
+ 
+ navigation/-> React Navigation setup
+ 
+ services/  -> API calls, WebSocket connection
+ 
+ utils/   -> Utility functions
+ 
+ assets/  -> Images, icons, and fonts
+ 
+ types/   ->  TypeScript types and interfaces
+ 
 
-```bash
-# using npm
-npm run ios
+## Key Files
+•	App.tsx: Main entry point of the app.
+•	navigation/: Manages tab navigation using React Navigation.
+•	services/TiingoWebSocket.ts: Handles WebSocket connection and Tiingo WebSocket calls.
 
-# OR using Yarn
-yarn ios
-```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+# Functionality Overview
+## Tab Navigation
+The app uses a bottom tab navigator with the following tabs:
+•	Home: 
+•	Market: Displays live market data streamed from Tiingo. : Allows users to search and filter symbols. see more details by click on search result items
+•	Portfolio: (Optional) Displays a user's selected stocks.
+•	Settings:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+##  Market Tab
+  Fetches live market data using WebSockets.
+  Displays a list of stock symbols with live price updates.
 
-## Step 3: Modifying your App
+##  Search Symbol
+  Filters the stock list based on user input.
+  Real-time search results as you type.
 
-Now that you have successfully run the app, let's modify it.
+##  Stock Details
+	Clicking a stock symbol navigates to a detailed view.
+	Displays stock-specific information such as: 
+	Current price
+	Daily high/low
+	Historical data (if integrated).
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+# Dependencies
+## Key Libraries
+  React Navigation: Handles app navigation.
+  Axios: For REST API calls.
+  react-native-reanimated: Smooth animations.
+  react-native-gesture-handler: Gesture support for navigation and UI components.
+  WebSocket: Real-time data streaming from Tiingo.
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+# Testing
+##  Unit Testing
+run test in the terminal of root **npm test**
+•	Tools: Jest, React Native Testing Library.
+•	Validate WebSocket data handling.
 
-### Now what?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
 
 # Troubleshooting
+Common Issues
+•	WebSocket connection errors: Verify your Tiingo API key and ensure the WebSocket endpoint is reachable.
+•	Dependency conflicts: Check for compatibility issues in package.json.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+# Contact
+For support, contact **Himasha Gallage** at **gallagehh@gmail.com**.
+(https://github.com/user-attachments/assets/38242736-79a1-4909-ba16-b96e1cfae452)
