@@ -86,6 +86,9 @@ const HomeScreen = () => {
           numColumns={2} // 2 columns
           renderItem={renderItem}
           contentContainerStyle={styles.folderContainer}
+          showsVerticalScrollIndicator={false}
+          scrollEnabled={true}
+          nestedScrollEnabled={true}
         />
       </View>
     </View>
@@ -147,7 +150,7 @@ const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.cre
     color: colors.text_white
   },
   folderContainer: {
-    flex: 1, 
+    flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: 16,

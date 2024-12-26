@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {CustomHeaderProps} from '../types/interfaces';
+import { CustomHeaderProps } from '../types/interfaces';
 
 const Header: React.FC<CustomHeaderProps> = ({ title, onProfilePress, onNotificationPress }) => {
     const { colors, fontSizes, fonts } = useTheme();
