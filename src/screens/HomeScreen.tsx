@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, FlatList, Alert, ListRenderItemInfo } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import Spinner from '../components/Spinner';
 import NetInfo from '@react-native-community/netinfo';
 
-const HomeScreen = () => {
-  const theme = useTheme();
-  const styles = createStyles(theme);
-  const backgroundImage = require('../../assets/img/background.jpg');
-  const data = [...Array(6).keys()]; 
 
-  // State to manage loading and errors
+type DataItem = number;
+const data: DataItem[] = Array.from({ length: 6 }, (_, index) => index);
+
+const HomeScreen = () => {
+  const { colors, fontSizes, fonts } = useTheme();
+  const styles = createStyles(colors, fonts, fontSizes);
+
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
 
@@ -45,9 +47,21 @@ const HomeScreen = () => {
     );
   }
 
+  const renderItem = ({ item, index }: ListRenderItemInfo<DataItem>) => {
+    const isFirstColumn = index % 2 === 0;
+    return (
+      <View style={[styles.folderCard, isFirstColumn && styles.firstColumn]}>
+        <Text style={styles.smallText}>Item {item + 1}</Text>
+        <Text style={styles.largeText}>Details</Text>
+        <Text style={styles.description}>Lorem ipsum dolor sit amet</Text>
+      </View>
+    );
+  };
+
   return (
-    <ImageBackground source={backgroundImage} style={styles.container}>
-      <View style={styles.scrollContainer}>
+    /* Todo - Dummy purpose only */
+    <View style={styles.container}>
+      <View style={styles.cardContainer}>
         <View style={styles.fullWidthCard}>
           <View style={styles.storageInfo}>
             <View>
@@ -63,36 +77,48 @@ const HomeScreen = () => {
 
         <View style={styles.foldersHeader}>
           <Text style={styles.featured}>Featured</Text>
-          <TouchableOpacity>
-            <Text style={styles.linkText}>see all</Text>
-          </TouchableOpacity>
+          <Text style={styles.linkText}>see all</Text>
         </View>
 
         <FlatList
           data={data}
           keyExtractor={(item) => item.toString()}
-          numColumns={2}
-          renderItem={({ item }) => (
-            <View style={styles.glassmorphicCard}>
-              <Text style={styles.smallText}>Item {item + 1}</Text>
-              <Text style={styles.largeText}>Details</Text>
-            </View>
-          )}
-          contentContainerStyle={styles.foldersContainer}
+          numColumns={2} // 2 columns
+          renderItem={renderItem}
+          contentContainerStyle={styles.folderContainer}
         />
       </View>
-    </ImageBackground>
+    </View>
   );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: theme.transparent_dark,
+    backgroundColor: colors.bg_blue
   },
-  scrollContainer: {
-    padding: 16,
+  cardContainer: {
+    flex: 1,
+    backgroundColor: colors.gm_light,
+    borderTopRightRadius: 32,
+    borderTopLeftRadius: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fullWidthCard: {
+    backgroundColor: colors.gm_light,
+    borderRadius: 32,
+    marginTop: 20,
+    padding: 20,
+    width: '95%',
+    marginBottom: 16,
+    borderColor: colors.gm_dark,
+    borderWidth: 1,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+    elevation: 8,
   },
   totalStorage: {
     flexDirection: 'column',
@@ -108,71 +134,68 @@ const createStyles = (theme: any) => StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 16,
-  },
-  linkText: {
-    fontSize: 14,
-    color: theme.white,
+    width: '85%',
+    paddingVertical: 16
   },
   featured: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: theme.white,
+    fontSize: fontSizes.xLarge,
+    color: colors.text_white,
+    fontWeight: 'bold'
   },
-  fullWidthCard: {
-    backgroundColor: theme.transparent_light,
-    borderRadius: 16,
-    padding: 20,
-    width: '95%',
+  linkText: {
+    fontSize: fontSizes.medium,
+    color: colors.text_white
+  },
+  folderContainer: {
+    flex: 1, 
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 16,
+  },
+  folderCard: {
     marginBottom: 16,
-    borderColor: theme.transparent_dark,
+    borderRadius: 32,
+    width: '44%',
+    padding: 30,
     borderWidth: 1,
-    shadowColor: theme.black,
+    shadowColor: colors.bg_black,
+    borderColor: colors.gm_dark,
+    backgroundColor: colors.gm_light,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
-    shadowRadius: 20,
-    elevation: 8,
-  },
-  glassmorphicCard: {
-    backgroundColor: theme.transparent_light,
-    borderRadius: 16,
-    padding: 20,
-    width: '48%',
-    marginBottom: 16,
-    marginHorizontal: '1%',
-    borderColor: theme.transparent_dark,
-    borderWidth: 1,
-    shadowColor: theme.black,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 20,
-    elevation: 8,
-  },
-  foldersContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    shadowRadius: 10,
+    elevation: 5,
+    overflow: 'hidden'
   },
   smallText: {
     fontSize: 14,
-    color: theme.white,
+    color: colors.text_white,
   },
   largeText: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#4CAF50',
+    color: colors.green,
+    fontWeight: 'bold',
+  },
+  description: {
+    overflow: 'hidden',
+    fontSize: 14,
+    color: colors.icon_pink,
   },
   errorContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.transparent_light,
+    backgroundColor: colors.gm_light,
     padding: 20,
   },
   errorText: {
     fontSize: 16,
-    color: theme.warning_orange,
+    color: colors.warning_orange,
     textAlign: 'center',
     marginBottom: 20,
+  },
+  firstColumn: {
+    marginRight: 50
   },
 });
 

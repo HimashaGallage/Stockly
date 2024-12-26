@@ -5,8 +5,8 @@ import {error_messsges } from '../utils/strings';
 import { ErrorProps} from '../types/interfaces';
 
 const Error: React.FC<ErrorProps> = ({ onRetry }) => {
-    const theme = useTheme();
-    const styles = createStyles(theme);
+    const { colors, fontSizes, fonts } = useTheme();
+    const styles = createStyles(colors, fonts, fontSizes);
     return (
         <View style={styles.container}>
             <Text style={styles.errorText}>{error_messsges.general_error_messsage}</Text>
@@ -15,18 +15,17 @@ const Error: React.FC<ErrorProps> = ({ onRetry }) => {
     );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-        backgroundColor: theme.base_black,
         borderRadius: 10,
         margin: 20,
     },
     errorText: {
-        color: theme.warning_orange,
+        color: colors.warning_orange,
         marginBottom: 10,
         textAlign: 'center',
     },

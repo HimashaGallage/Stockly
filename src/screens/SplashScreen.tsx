@@ -3,12 +3,12 @@ import { StyleSheet, ImageBackground, View } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 
 const SplashScreen = ({ navigation }: any) => {
-  const theme = useTheme();
-  const styles = createStyles(theme);
+  const { colors, fontSizes, fonts } = useTheme();
+  const styles = createStyles(colors, fonts, fontSizes);
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Main');
+      navigation.replace('Tabs');
     }, 2000);
   }, [navigation]);
 
@@ -23,7 +23,7 @@ const SplashScreen = ({ navigation }: any) => {
   );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'transparent'
