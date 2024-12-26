@@ -63,6 +63,7 @@ const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.cre
     borderTopLeftRadius: 32,
     borderTopWidth: 0,
     elevation: 0,
+    height: 'auto'
   },
   tabBarLabelStyle: {
     marginTop: 5,
