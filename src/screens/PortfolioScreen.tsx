@@ -4,8 +4,8 @@ import { useTheme } from '../theme/ThemeContext';
 import Spinner from '../components/Spinner';
 
 const PortfolioScreen = () => {
-  const theme = useTheme();
-  const styles = createStyles(theme);
+  const { colors, fontSizes, fonts } = useTheme();
+  const styles = createStyles(colors, fonts, fontSizes);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -24,15 +24,16 @@ const PortfolioScreen = () => {
   );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.bg_blue
   },
   text: {
     fontSize: 24,
-    color: theme.white,
+    color: colors.text_white,
   },
 });
 

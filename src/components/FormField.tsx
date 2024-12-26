@@ -9,8 +9,8 @@ type DynamicFormFieldProps = {
 };
 
 const StocklyFormField: React.FC<DynamicFormFieldProps> = ({ label, value, editable = false }) => {
-  const theme = useTheme();
-  const styles = createStyles(theme);
+  const { colors, fontSizes, fonts } = useTheme();
+  const styles = createStyles(colors, fonts, fontSizes);
 
   return (
     <View style={styles.inputGroup}>
@@ -24,26 +24,26 @@ const StocklyFormField: React.FC<DynamicFormFieldProps> = ({ label, value, edita
   );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
   inputGroup: {
     marginBottom: 16,
     width: '100%',
   },
   label: {
     fontSize: 18,
-    color: theme.white,
+    color: colors.text_white,
     marginBottom: 4,
     textAlign: 'left',
   },
   input: {
     width: '100%',
-    borderColor: theme.transparent_dark,
+    borderColor: colors.gm_light,
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 16,
     paddingVertical: 16,
-    color: theme.white,
-    backgroundColor: theme.transparent_dark,
+    color: colors.text_white,
+    backgroundColor: colors.gm_light,
     textAlign: 'left',
     fontSize: 18,
   },

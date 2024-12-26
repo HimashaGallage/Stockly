@@ -5,12 +5,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {CustomHeaderProps} from '../types/interfaces';
 
 const Header: React.FC<CustomHeaderProps> = ({ title, onProfilePress, onNotificationPress }) => {
-    const theme = useTheme();
-    const styles = createStyles(theme);
+    const { colors, fontSizes, fonts } = useTheme();
+    const styles = createStyles(colors, fonts, fontSizes);
     const profileImage = require('../../assets/img/profile.jpg');
 
     return (
-        <View style={styles.headerContainer}>
+        <View style={styles.container}>
             <Pressable onPress={onProfilePress} style={styles.profileButton}>
                 <Image
                     source={profileImage}
@@ -25,16 +25,17 @@ const Header: React.FC<CustomHeaderProps> = ({ title, onProfilePress, onNotifica
     );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
-    headerContainer: {
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
+    container: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 16,
-        backgroundColor: 'transparent',
+        backgroundColor: colors.bg_blue,
+        paddingVertical: 16,
+        paddingHorizontal: 24,
     },
     title: {
-        color: theme.white,
+        color: colors.text_white,
         fontSize: 20,
         flex: 1,
         textAlign: 'center',
@@ -42,7 +43,7 @@ const createStyles = (theme: any) => StyleSheet.create({
     profileButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 32,
+        marginTop: 48,
     },
     profileImage: {
         width: 40,
@@ -52,10 +53,10 @@ const createStyles = (theme: any) => StyleSheet.create({
     notificationButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 32,
+        marginTop: 48,
     },
     notificationIcon: {
-        color: theme.white,
+        color: colors.text_white,
         fontWeight: 'bold'
     }
 });

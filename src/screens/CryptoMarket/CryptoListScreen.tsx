@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { View, FlatList, StyleSheet, SafeAreaView, ImageBackground } from 'react-native';
+import { View, FlatList, StyleSheet, SafeAreaView, ImageBackground, Text } from 'react-native';
 import TiingoWebSocket from '../../services/TiingoWebSocket';
 import { StockItem } from '../../types/MarketDataTypes';
 import { useTheme } from '../../theme/ThemeContext';
@@ -15,11 +15,10 @@ const CryptoListScreen: React.FC = () => {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const [selectedItem, setSelectedItem] = useState<StockItem | null>(null);
 
-    const theme = useTheme();
-    const backgroundImage = require('../../../assets/img/background.jpg');
+    const { colors, fontSizes, fonts } = useTheme();
 
     // Memoize styles
-    const styles = useMemo(() => createStyles(theme), [theme]);
+    const styles = useMemo(() => createStyles(colors, fontSizes, fonts), [colors, fontSizes, fonts]);
 
     useEffect(() => {
         const ws = TiingoWebSocket((data: StockItem) => {
@@ -64,7 +63,6 @@ const CryptoListScreen: React.FC = () => {
     }
 
     return (
-        <ImageBackground source={backgroundImage} style={styles.container}>
             <SafeAreaView style={styles.container}>
                 <View style={styles.flatList}>
                     
@@ -79,7 +77,6 @@ const CryptoListScreen: React.FC = () => {
                         showsVerticalScrollIndicator={false}
                     />
                 </View>
-                {/* Render the modal if it is visible */}
                 {modalVisible && selectedItem && (
                     <CryptoDetailModal
                         item={selectedItem}
@@ -88,21 +85,20 @@ const CryptoListScreen: React.FC = () => {
                     />
                 )}
             </SafeAreaView>
-        </ImageBackground>
     );
 };
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: colors.bg_blue
     },
     flatList: {
         flex: 1,
         borderTopLeftRadius: 24,
         borderTopRightRadius: 24,
         paddingTop: 24,
-        paddingHorizontal: 16,
-        marginBottom: 50,
+        paddingHorizontal: 24,
     }
 });
 

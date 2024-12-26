@@ -1,17 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import { formatTickerSymbol } from '../utils/utils';
 import { StockCardProps } from '../types/interfaces';
 
 const StockCard: React.FC<StockCardProps> = React.memo(({ item, onPress }) => {
-    const theme = useTheme();
-    const styles = createStyles(theme);
+    const { colors, fontSizes, fonts } = useTheme();
+    const styles = createStyles(colors, fonts, fontSizes);
 
     return (
         <Pressable style={styles.cardContainer} onPress={onPress}>
             <View style={styles.tableRow}>
                 {/* Left Section */}
+                <View style={styles.logoContainer}>
+                    <Image
+                        source={require('../../assets/img/btclogo.png')} // Correct usage of require
+                        style={styles.image} // Add styles as needed
+                    />
+                </View>
                 <View style={styles.leftCell}>
                     <Text style={styles.ticker}>
                         {formatTickerSymbol(item.ticker?.toUpperCase())}
@@ -30,15 +36,15 @@ const StockCard: React.FC<StockCardProps> = React.memo(({ item, onPress }) => {
 });
 
 
-const createStyles = (theme: any) => StyleSheet.create({
+const createStyles = (colors: any, fonts: any, fontSizes: any) => StyleSheet.create({
     cardContainer: {
         marginBottom: 16,
         borderRadius: 16,
         overflow: 'hidden',
-        backgroundColor: theme.transparent_light,
+        backgroundColor: colors.gm_light,
         borderWidth: 1,
-        borderColor: theme.transparent_dark,
-        shadowColor: theme.black,
+        borderColor: colors.gm_dark,
+        shadowColor: colors.black,
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.2,
         shadowRadius: 2,
@@ -49,7 +55,7 @@ const createStyles = (theme: any) => StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 8,
         borderTopWidth: 1,
-        borderTopColor: theme.shadow_grey,
+        borderTopColor: colors.gm_light,
     },
     leftCell: {
         flex: 1.5,
@@ -63,18 +69,25 @@ const createStyles = (theme: any) => StyleSheet.create({
         alignItems: 'flex-end',
     },
     ticker: {
-        fontSize: 16,
+        fontSize: fontSizes.medium,
         fontWeight: 'bold',
-        color: theme.green,
+        color: colors.green,
     },
     exchange: {
-        fontSize: 16,
-        color: theme.white,
+        fontSize: fontSizes.medium,
+        color: colors.text_white,
     },
     price: {
-        fontSize: 16,
+        fontSize: fontSizes.medium,
         fontWeight: 'bold',
-        color: theme.pink,
+        color: colors.icon_pink,
+    },
+    logoContainer: {
+        marginLeft: 10
+    },
+    image: {
+        width: 25,
+        height: 25
     }
 });
 
