@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { colors } from '../theme/colors';
 
 const Spinner = () => {
-  const { colors, fontSizes, fonts } = useTheme();
+  const { colors } = useTheme();
 
   return (
     <View style={styles.centeredView}>

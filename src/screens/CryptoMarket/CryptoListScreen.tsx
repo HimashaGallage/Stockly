@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { View, FlatList, StyleSheet, SafeAreaView, ImageBackground, Text } from 'react-native';
+import { View, FlatList, StyleSheet, SafeAreaView } from 'react-native';
 import TiingoWebSocket from '../../services/TiingoWebSocket';
 import { StockItem } from '../../types/MarketDataTypes';
 import { useTheme } from '../../theme/ThemeContext';

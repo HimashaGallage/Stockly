@@ -14,8 +14,8 @@ const StockCard: React.FC<StockCardProps> = React.memo(({ item, onPress }) => {
                 {/* Left Section */}
                 <View style={styles.logoContainer}>
                     <Image
-                        source={require('../../assets/img/btclogo.png')} // Correct usage of require
-                        style={styles.image} // Add styles as needed
+                        source={require('../../assets/img/btclogo.png')}
+                        style={styles.image}
                     />
                 </View>
                 <View style={styles.leftCell}>

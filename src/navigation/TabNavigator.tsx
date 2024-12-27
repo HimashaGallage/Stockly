@@ -4,11 +4,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useTheme } from '../theme/ThemeContext';
 import { BOTTOM_TABS } from '../utils/constants';
+import Header from '../components/Header';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PortfolioScreen from '../screens/PortfolioScreen';
 import CryptoListScreen from '../screens/CryptoMarket/CryptoListScreen';
-import Header from '../components/Header';
 
 const Tab = createBottomTabNavigator();
 

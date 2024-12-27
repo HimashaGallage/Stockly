@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, FlatList, Alert, ListRenderItemInfo } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Alert, ListRenderItemInfo } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
 import Spinner from '../components/Spinner';
 import NetInfo from '@react-native-community/netinfo';
