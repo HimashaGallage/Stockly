@@ -13,15 +13,16 @@
 
 # Prerequisites
 ## Environment: 
-	Node.js (>=18.x)
+  Node.js (>=18.x)
   npm or Yarn
   React Native CLI
   Dependencies: 
-  React Native TypeScript template
-	Tiingo API access (API key required
+  React Native TypeScript Tiingo API access (API key required)
 
 # Installation
 ##  Clone the Repository
+in the terminal,
+
 git clone https://github.com/HimashaGallage/Stokcly.git
 cd Stockly
 
@@ -29,23 +30,21 @@ cd Stockly
 Run the following command to install all required dependencies:
 npm install
 
+For iOS: 
+npx pod-install
+
 ##  Environment Setup
+
+sinup in https://www.tiingo.com/ and copy your API Token from docmunettation section
 Create a .env file in the root directory with the following:
-### Tiingo API URL
-TIINGO_API_URL=https://api.tiingo.com/tiingo/crypto
-### Tiingo Crypto WebSocket URL
-REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL=wss://api.tiingo.com/crypto
-### Authorization Token
-AUTHORIZATION_TOKEN=
+
+TIINGO_CRYPTO_WEBSOCKET_URL=wss://api.tiingo.com/crypto
+TIINGO_API_URL = https://api.tiingo.com/tiingo/crypto
+TIINGO_AUTHORIZATION_TOKEN=  **add your Your API Token here**
 
 ## Start the App
-•	For iOS: 
-•	npx pod-install
-•	npm run ios
-
-
-•	For Android:  (not full tested)
-•	npm run android
+•	For iOS: 	npm run ios
+•	For Android:	npm run android
 
 
 # App Structure 
