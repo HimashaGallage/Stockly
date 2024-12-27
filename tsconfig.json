@@ -1,9 +1,8 @@
 {
+  "include": ["src", "types"] ,
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
-    "types": [
-      "node",
-      "jest"
-    ]
+    "types": ["node", "jest", "@env"],
+    "typeRoots": ["./types", "node_modules/@types"]
   }
 }

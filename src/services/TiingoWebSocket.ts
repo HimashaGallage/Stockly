@@ -1,19 +1,17 @@
 import { StockItem } from '../types/MarketDataTypes';
 import { SubscribeMessage } from '../types/interfaces';
 import Snackbar from 'react-native-snackbar';
-
-const REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL = 'wss://api.tiingo.com/crypto';
-const AUTHORIZATION_TOKEN = 'd66497b6b1088bb39ab2f2915b7ca60d6af05d8a';
+import { TIINGO_CRYPTO_WEBSOCKET_URL, TIINGO_AUTHORIZATION_TOKEN } from "@env";
 
 const TiingoWebSocket = (onTickerDataReceived: (data: StockItem) => void) => {
 
-    const ws = new WebSocket(REACT_APP_TIINGO_CRYPTO_WEBSOCKET_URL);
+    const ws = new WebSocket(TIINGO_CRYPTO_WEBSOCKET_URL);
 
     // Subscribe to the desired tickers when the connection opens
     ws.onopen = () => {
         const subscribeMessage: SubscribeMessage = {
             eventName: 'subscribe',
-            authorization: AUTHORIZATION_TOKEN || '',
+            authorization: TIINGO_AUTHORIZATION_TOKEN,
             eventData: {
                 thresholdLevel: 5,
                 // tickers: ['audusd', 'eurusd'],

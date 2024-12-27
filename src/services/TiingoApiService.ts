@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { TopOfBookData } from '../types/MarketDataTypes';
-import {TingoApiResponse} from '../types/interfaces';
-
-const TIINGO_API_URL = 'https://api.tiingo.com/tiingo/crypto';
-const AUTHORIZATION_TOKEN = 'd66497b6b1088bb39ab2f2915b7ca60d6af05d8a';
+import { TingoApiResponse } from '../types/interfaces';
+import { TIINGO_API_URL, TIINGO_AUTHORIZATION_TOKEN } from "@env";
 
 // Function to fetch Top-of-Book data
 export const fetchTopOfTheBookData = async (ticker: string): Promise<TopOfBookData | null> => {
@@ -11,13 +9,13 @@ export const fetchTopOfTheBookData = async (ticker: string): Promise<TopOfBookDa
         const response = await axios.get<TingoApiResponse>(TIINGO_API_URL, {
             params: {
                 tickers: ticker,
-                token: AUTHORIZATION_TOKEN,
+                token: TIINGO_AUTHORIZATION_TOKEN,
             },
             headers: {
                 'Content-Type': 'application/json',
             },
         });
-        const topOfBookData = response.data.topOfBookData[0]; 
+        const topOfBookData = response.data.topOfBookData[0];
 
         if (topOfBookData) {
             return topOfBookData;
