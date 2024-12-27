@@ -17,8 +17,7 @@
   npm or Yarn
   React Native CLI
   Dependencies: 
-  React Native TypeScript template
-	Tiingo API access (API key required
+  React Native TypeScript Tiingo API access (API key required)
 
 # Installation
 ##  Clone the Repository
