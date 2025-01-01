@@ -35,7 +35,7 @@ npx pod-install
 
 ##  Environment Setup
 
-sinup in https://www.tiingo.com/ and copy your API Token from docmunettation section
+signup in https://www.tiingo.com/ and copy your **API Token** from docmunettation section
 Create a .env file in the root directory with the following:
 
 TIINGO_CRYPTO_WEBSOCKET_URL=wss://api.tiingo.com/crypto
